@@ -128,7 +128,7 @@
     return r;
   }
 
-  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function load() { try { var l = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(l) ? l.filter(function (p) { return p && p.input; }) : []; } catch (e) { return []; } }
   function store(list) { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} renderSaved(); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]; }); }
 
@@ -246,6 +246,9 @@
     if (d.load !== undefined) { e.preventDefault(); var p = load()[+d.load].input; setMp(p.mp, false); write(p); update(); $('calc').scrollIntoView({ behavior: 'smooth' }); }
   };
 
-  if (!fromUrl()) setMp('wb', false);
-  renderSaved();
+  // Инициализация: ошибка в одной части (кривые параметры ссылки, недоступный localStorage)
+  // не должна оставлять пустыми категории и расчёт.
+  try { fillCategories(); } catch (e) { console.error(e); }
+  try { if (!fromUrl()) setMp('wb', false); } catch (e) { console.error(e); try { setMp('wb', true); } catch (e2) { console.error(e2); } }
+  try { renderSaved(); } catch (e) { console.error(e); }
 })();
