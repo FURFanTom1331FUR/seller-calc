@@ -3,58 +3,233 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Калькулятор прибыли для Wildberries и Ozon — юнит-экономика онлайн</title>
-<meta name="description" content="Бесплатный калькулятор юнит-экономики для селлеров Wildberries и Ozon: прибыль, маржа, ROI, точка безубыточности.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+<title>Калькулятор прибыли Wildberries и Ozon 2026 — юнит-экономика онлайн бесплатно</title>
+<meta name="description" content="Бесплатный калькулятор юнит-экономики для селлеров Wildberries и Ozon: комиссии по категориям, логистика WB по габаритам, процент выкупа, налоги. Прибыль, маржа, ROI, точка безубыточности и цена под нужную прибыль.">
+<link rel="canonical" href="https://furfantom1331fur.github.io/seller-calc/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7b2ff7">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Калькулятор селлера">
+<meta property="og:title" content="Калькулятор прибыли для Wildberries и Ozon">
+<meta property="og:description" content="Прибыль, маржа, ROI и точка безубыточности товара за минуту. Комиссии по категориям, логистика по габаритам. Бесплатно и без регистрации.">
+<meta property="og:url" content="https://furfantom1331fur.github.io/seller-calc/">
+<meta property="og:image" content="https://furfantom1331fur.github.io/seller-calc/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Калькулятор прибыли для Wildberries и Ozon">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Калькулятор прибыли для Wildberries и Ozon">
+<meta name="twitter:description" content="Прибыль, маржа, ROI и точка безубыточности товара за минуту. Бесплатно и без регистрации.">
+<meta name="twitter:image" content="https://furfantom1331fur.github.io/seller-calc/og-image.png">
 <link rel="stylesheet" href="style.css">
+<script>/* тема до отрисовки, чтобы не мигало */try{var t=localStorage.getItem('sellerCalc.theme');if(t||matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme=t||'dark'}catch(e){}</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Калькулятор прибыли для Wildberries и Ozon",
+ "url": "https://furfantom1331fur.github.io/seller-calc/",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Any",
+ "inLanguage": "ru",
+ "isAccessibleForFree": true,
+ "description": "Бесплатный онлайн-калькулятор юнит-экономики для продавцов Wildberries и Ozon: прибыль, маржа, ROI, точка безубыточности, комиссии по категориям и логистика по габаритам.",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "RUB"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Как посчитать юнит-экономику на Wildberries?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Юнит-экономика — это прибыль с одной проданной единицы. Возьмите цену продажи и вычтите себестоимость, комиссию WB по вашему предмету, логистику (с учётом невыкупов), хранение, приёмку, рекламу и налог. Калькулятор делает это автоматически: выберите Wildberries, категорию, укажите габариты для расчёта логистики — и сразу увидите прибыль, маржу и ROI."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Как рассчитать прибыль на Ozon?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Переключитесь на Ozon, выберите категорию (подставится ориентировочная комиссия), введите логистику из личного кабинета, процент выкупа, рекламу и налог. Калькулятор покажет чистую прибыль на единицу и за месяц. С 2026 года логистика Ozon зависит от маршрута доставки, поэтому её лучше брать из отчёта о начислениях."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Что такое процент выкупа и почему он важен?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Процент выкупа — доля заказов, которые покупатели забрали и оплатили. За невыкупленные заказы вы всё равно платите логистику до покупателя и обратно. Поэтому при выкупе 50% логистика на одну проданную вещь фактически вдвое дороже. Калькулятор учитывает это по формуле: (логистика + (1 − выкуп) × возврат) ÷ выкуп."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Что такое маржа, ROI и точка безубыточности?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Маржа — доля чистой прибыли в цене продажи. ROI — прибыль относительно себестоимости, то есть сколько вы зарабатываете на каждый вложенный в товар рубль. Точка безубыточности — минимальная цена, при которой товар не приносит убытка."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Какую цену поставить, чтобы заработать нужную сумму?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Воспользуйтесь блоком «Обратный расчёт»: укажите желаемую прибыль с одной штуки в рублях или желаемую маржу в процентах, и калькулятор подскажет минимальную цену продажи. Её можно сразу подставить в расчёт одной кнопкой."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Насколько точны комиссии и тарифы в калькуляторе?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ставки по категориям и тарифы логистики — ориентир по открытым данным на осень 2026 года. Маркетплейсы часто меняют тарифы, а точная комиссия зависит от конкретного предмета, поэтому сверяйте значения в личном кабинете продавца. Все поля можно редактировать вручную."
+   }
+  }
+ ]
+}
+</script>
+<!--
+  ===== Яндекс Метрика =====
+  Сюда вставьте код счётчика из metrika.yandex.ru (Настройка → Код счётчика).
+  Замените XXXXXXXX на номер своего счётчика и раскомментируйте блок.
+
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+  ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+  ===== /Яндекс Метрика =====
+-->
 </head>
-<body>
+<body class="wb">
+<a class="skip" href="#calc">Перейти к калькулятору</a>
 <header class="top">
   <div class="wrap">
-    <h1>Калькулятор прибыли <span>WB&nbsp;и&nbsp;Ozon</span></h1>
-    <p class="sub">Посчитайте чистую прибыль, маржу и точку безубыточности одного товара за минуту</p>
+    <nav class="nav" aria-label="Разделы">
+      <a class="logo" href="./"><img src="favicon.svg" alt="" width="28" height="28"> Калькулятор селлера</a>
+      <div class="nav-links">
+        <a href="#how">Как пользоваться</a>
+        <a href="#faq">Вопросы</a>
+        <button type="button" id="theme" class="icon-btn" aria-label="Переключить тёмную тему" title="Тёмная / светлая тема">◐</button>
+      </div>
+    </nav>
+    <div class="hero">
+      <h1>Калькулятор прибыли для <span class="nowrap">Wildberries и Ozon</span></h1>
+      <p class="sub">Узнайте, сколько вы реально заработаете с каждой продажи — с комиссией по категории, логистикой, невыкупами, рекламой и налогом.</p>
+      <ul class="badges">
+        <li>Бесплатно</li><li>Без регистрации</li><li>Данные остаются в вашем браузере</li><li>Тарифы на осень 2026</li>
+      </ul>
+    </div>
   </div>
 </header>
 
-<main class="wrap grid">
-  <section class="card" id="form">
-    <div class="mp-switch" role="tablist">
-      <button type="button" data-mp="wb" class="active">Wildberries</button>
-      <button type="button" data-mp="ozon">Ozon</button>
+<main class="wrap grid" id="calc">
+  <section class="card" id="form" aria-label="Параметры товара">
+    <div class="mp-switch" role="group" aria-label="Маркетплейс">
+      <button type="button" data-mp="wb" class="active" aria-pressed="true">Wildberries</button>
+      <button type="button" data-mp="ozon" aria-pressed="false">Ozon</button>
     </div>
 
-    <label class="full">Название товара<input id="name" type="text" placeholder="Например, футболка оверсайз"></label>
+    <div class="field full">
+      <div class="lbl"><label for="name">Название товара</label></div>
+      <input id="name" type="text" placeholder="Например, футболка оверсайз" autocomplete="off">
+    </div>
 
     <h3>Цена и закупка</h3>
     <div class="row">
-      <label>Цена продажи, ₽<input id="price" type="number" min="0" step="1" value="1500"></label>
-      <label>Себестоимость (закупка + доставка до склада), ₽<input id="cost" type="number" min="0" value="450"></label>
+      <div class="field">
+        <div class="lbl"><label for="price">Цена продажи, ₽</label><button type="button" class="q" aria-expanded="false" aria-controls="h-price" aria-label="Подсказка: Цена продажи, ₽">?</button></div>
+        <input id="price" type="number" inputmode="decimal" min="0" step="1" value="1500">
+        <p class="help" id="h-price" hidden>Цена, которую вы установили с учётом своей скидки (до скидки маркетплейса — СПП на WB, её компенсирует площадка). Где смотреть: WB — «Цены и скидки», Ozon — «Товары → Цены».</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="cost">Себестоимость, ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-cost" aria-label="Подсказка: Себестоимость, ₽/шт">?</button></div>
+        <input id="cost" type="number" inputmode="decimal" min="0" value="450">
+        <p class="help" id="h-cost" hidden>Закупка одной штуки + доставка до вас/фулфилмента + таможня, если есть. Берите полную стоимость партии и делите на количество штук.</p>
+      </div>
     </div>
 
     <h3>Расходы маркетплейса</h3>
     <div class="row">
-      <label>Комиссия, %<input id="commission" type="number" min="0" max="100" step="0.1" value="30">
-        <small id="commHint" class="hint"></small></label>
-      <label>Логистика до покупателя, ₽/шт<input id="logistics" type="number" min="0" value="80">
-        <small id="logHint" class="hint"></small></label>
+      <div class="field">
+        <div class="lbl"><label for="commission">Комиссия маркетплейса, %</label><button type="button" class="q" aria-expanded="false" aria-controls="h-commission" aria-label="Подсказка: Комиссия маркетплейса, %">?</button></div>
+        <input id="commission" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="38.5">
+        <select id="category" aria-label="Категория товара — подставить ориентировочную комиссию"></select>
+        <small id="commHint" class="hint"></small>
+        <p class="help" id="h-commission" hidden>Процент, который площадка удерживает с цены продажи. Зависит от категории (предмета) и схемы работы. WB: «Тарифы → Комиссии» — ищите свой предмет. Ozon: «Финансы → Тарифы» или карточка товара. У Ozon для товаров дешевле 300 ₽ действуют пониженные ставки.</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="logistics">Логистика до покупателя, ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-logistics" aria-label="Подсказка: Логистика до покупателя, ₽/шт">?</button></div>
+        <input id="logistics" type="number" inputmode="decimal" min="0" step="0.01" value="78.2">
+        <small id="logHint" class="hint"></small>
+        <p class="help" id="h-logistics" hidden>Сколько маркетплейс берёт за доставку одной единицы покупателю. WB: базовый тариф по объёму × коэффициент склада — можно посчитать по габаритам ниже. Ozon: тариф зависит от маршрута (кластер склада → кластер покупателя), цены и объёма; смотрите «Финансы → Тарифы» и отчёт о начислениях.</p>
+      </div>
+    </div>
+
+    <details class="vol" id="volBox">
+      <summary>Рассчитать логистику WB по габаритам упаковки</summary>
+      <div class="vol-grid">
+        <label>Длина, см<input id="dimL" type="number" inputmode="decimal" min="0" step="0.1" placeholder="30"></label>
+        <label>Ширина, см<input id="dimW" type="number" inputmode="decimal" min="0" step="0.1" placeholder="20"></label>
+        <label>Высота, см<input id="dimH" type="number" inputmode="decimal" min="0" step="0.1" placeholder="5"></label>
+        <label>Коэф. склада, %<input id="whCoef" type="number" inputmode="decimal" min="0" step="1" value="170"></label>
+      </div>
+      <p class="vol-out" id="volOut" aria-live="polite">Введите габариты упаковки — логистика и возврат подставятся автоматически.</p>
+      <p class="hint">Тарифы WB для новых поставок с 15.08.2026: до 1 л — 23–32 ₽ по ступеням объёма, свыше 1 л — 46 ₽ за первый литр + 14 ₽ за каждый следующий; × коэффициент склада (единый 170%, для сверхгабарита 100%). Возврат — по базовому тарифу без коэффициента. Ориентир, проверьте в ЛК → «Тарифы».</p>
+    </details>
+    <p class="ozon-note hint" id="ozonNote">У Ozon с 2026 года логистика FBO считается по маршруту «кластер склада → кластер покупателя» и зависит от цены и объёма, поэтому простой формулы нет. Возьмите тариф из ЛК: «Финансы → Тарифы» или из отчёта о начислениях.</p>
+
+    <div class="row">
+      <div class="field">
+        <div class="lbl"><label for="storage">Хранение, ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-storage" aria-label="Подсказка: Хранение, ₽/шт">?</button></div>
+        <input id="storage" type="number" inputmode="decimal" min="0" step="0.01" value="10">
+        <p class="help" id="h-storage" hidden>Сколько в среднем стоит хранение одной единицы до её продажи. Посчитайте: суточный тариф хранения × дней на складе. WB: «Тарифы → Хранение», Ozon: «Финансы → Тарифы» (после бесплатного периода).</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="acceptance">Приёмка, упаковка, маркировка, ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-acceptance" aria-label="Подсказка: Приёмка, упаковка, маркировка, ₽/шт">?</button></div>
+        <input id="acceptance" type="number" inputmode="decimal" min="0" step="0.01" value="20">
+        <p class="help" id="h-acceptance" hidden>Платная приёмка на складе, упаковка, этикетки, маркировка «Честный знак», услуги фулфилмента — всё в расчёте на одну штуку.</p>
+      </div>
     </div>
     <div class="row">
-      <label>Хранение, ₽/шт<input id="storage" type="number" min="0" value="10"></label>
-      <label>Приёмка / упаковка / маркировка, ₽/шт<input id="acceptance" type="number" min="0" value="20"></label>
-    </div>
-    <div class="row">
-      <label>Процент выкупа, %<input id="buyout" type="number" min="1" max="100" value="85"></label>
-      <label>Обратная логистика (возврат), ₽/шт<input id="returnLogistics" type="number" min="0" value="50"></label>
+      <div class="field">
+        <div class="lbl"><label for="buyout">Процент выкупа, %</label><button type="button" class="q" aria-expanded="false" aria-controls="h-buyout" aria-label="Подсказка: Процент выкупа, %">?</button></div>
+        <input id="buyout" type="number" inputmode="decimal" min="1" max="100" value="85">
+        <p class="help" id="h-buyout" hidden>Какая доля заказов выкупается. Остальные возвращаются, и вы платите логистику в обе стороны. WB: «Аналитика → Воронка продаж», Ozon: «Аналитика». Одежда и обувь — часто 30–60%, большинство других товаров — 85–98%.</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="returnLogistics">Обратная логистика (возврат), ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-returnLogistics" aria-label="Подсказка: Обратная логистика (возврат), ₽/шт">?</button></div>
+        <input id="returnLogistics" type="number" inputmode="decimal" min="0" step="0.01" value="46">
+        <p class="help" id="h-returnLogistics" hidden>Стоимость возврата невыкупленного товара на склад. На WB считается по базовому тарифу объёма без коэффициента склада, на Ozon — по тарифу прямой логистики без наценки за нелокальность.</p>
+      </div>
     </div>
 
     <h3>Реклама и налоги</h3>
     <div class="row">
-      <label>Реклама
+      <div class="field">
+        <div class="lbl"><label for="ads">Реклама</label><button type="button" class="q" aria-expanded="false" aria-controls="h-ads" aria-label="Подсказка: Реклама">?</button></div>
         <div class="inline">
-          <input id="ads" type="number" min="0" step="0.1" value="10">
-          <select id="adsMode"><option value="pct">% от цены (ДРР)</option><option value="rub">₽ за шт</option></select>
-        </div></label>
-      <label>Налог
+          <input id="ads" type="number" inputmode="decimal" min="0" step="0.1" value="10" aria-label="Реклама">
+          <select id="adsMode" aria-label="Как считать рекламу"><option value="pct">% от цены (ДРР)</option><option value="rub">₽ за шт</option></select>
+        </div>
+        <p class="help" id="h-ads" hidden>ДРР — доля рекламных расходов: расходы на рекламу ÷ выручка × 100%. Смотрите статистику рекламных кампаний в кабинете. Если знаете стоимость рекламы на одну продажу в рублях — выберите «₽ за шт».</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="taxMode">Налог</label><button type="button" class="q" aria-expanded="false" aria-controls="h-taxMode" aria-label="Подсказка: Налог">?</button></div>
         <div class="inline">
           <select id="taxMode">
             <option value="usn6">УСН 6% (доходы)</option>
@@ -63,54 +238,104 @@
             <option value="npd6" selected>Самозанятый 6%</option>
             <option value="custom">Свой %</option>
           </select>
-          <input id="taxRate" type="number" min="0" max="100" step="0.1" value="6" title="Ставка, % от выручки">
-        </div></label>
+          <input id="taxRate" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="6" aria-label="Ставка налога, % от выручки">
+        </div>
+        <p class="help" id="h-taxMode" hidden>Налог упрощённо считается от цены продажи (УСН 15% — от разницы доходов и расходов). Самозанятые платят 4% с физлиц и 6% с юрлиц и ИП; деньги от маркетплейса обычно облагаются по 6%. Взносы, НДС и вычеты не учитываются.</p>
+      </div>
     </div>
     <div class="row">
-      <label>Прочие расходы, ₽/шт<input id="other" type="number" min="0" value="0"></label>
-      <label>Продаж (выкупов) в месяц, шт<input id="units" type="number" min="0" value="100"></label>
+      <div class="field">
+        <div class="lbl"><label for="other">Прочие расходы, ₽/шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-other" aria-label="Подсказка: Прочие расходы, ₽/шт">?</button></div>
+        <input id="other" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+        <p class="help" id="h-other" hidden>Всё, что не вошло выше: фото и дизайн карточек, пакеты, бирки, штрафы, хранение на своём складе — в расчёте на одну штуку.</p>
+      </div>
+      <div class="field">
+        <div class="lbl"><label for="units">Продаж (выкупов) в месяц, шт</label><button type="button" class="q" aria-expanded="false" aria-controls="h-units" aria-label="Подсказка: Продаж (выкупов) в месяц, шт">?</button></div>
+        <input id="units" type="number" inputmode="decimal" min="0" value="100">
+        <p class="help" id="h-units" hidden>Сколько штук в месяц вы планируете продавать — нужно только для расчёта месячной выручки и прибыли.</p>
+      </div>
     </div>
 
     <div class="actions">
       <button type="button" id="save" class="primary">Сохранить товар</button>
+      <button type="button" id="share" class="ghost">🔗 Поделиться расчётом</button>
       <button type="button" id="reset" class="ghost">Сбросить</button>
     </div>
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
   </section>
 
-  <section class="card results" id="results">
-    <h2>Результат на 1 проданную единицу</h2>
-    <div class="kpis">
-      <div class="kpi main"><span>Чистая прибыль</span><b id="rProfit">—</b></div>
-      <div class="kpi"><span>Маржа</span><b id="rMargin">—</b></div>
-      <div class="kpi"><span>ROI</span><b id="rRoi">—</b></div>
-      <div class="kpi"><span>Точка безубыточности</span><b id="rBreak">—</b></div>
-    </div>
-    <div class="bar" id="bar"></div>
-    <table class="breakdown" id="breakdown"></table>
-    <div class="month">
-      <div><span>Выручка за месяц</span><b id="mRevenue">—</b></div>
-      <div><span>Прибыль за месяц</span><b id="mProfit">—</b></div>
-    </div>
-    <p class="note">Логистика пересчитана с учётом выкупа: (логистика + (1 − выкуп) × возврат) ÷ выкуп. ROI — прибыль к себестоимости.</p>
-  </section>
+  <aside class="side">
+    <section class="card results" id="results" aria-label="Результат расчёта">
+      <h2>Результат на 1 проданную единицу</h2>
+      <div class="kpis">
+        <div class="kpi main"><span>Чистая прибыль</span><b id="rProfit">—</b></div>
+        <div class="kpi"><span>Маржа</span><b id="rMargin">—</b></div>
+        <div class="kpi"><span>ROI</span><b id="rRoi">—</b></div>
+        <div class="kpi wide"><span>Точка безубыточности (минимальная цена без убытка)</span><b id="rBreak">—</b></div>
+      </div>
+      <div class="bar" id="bar" aria-hidden="true"></div>
+      <table class="breakdown" id="breakdown"></table>
+      <div class="month">
+        <div><span>Выручка за месяц</span><b id="mRevenue">—</b></div>
+        <div><span>Прибыль за месяц</span><b id="mProfit">—</b></div>
+      </div>
+      <p class="note">Логистика пересчитана с учётом выкупа: (логистика + (1 − выкуп) × возврат) ÷ выкуп. ROI — прибыль к себестоимости.</p>
+    </section>
+
+    <section class="card reverse" id="reverse" aria-label="Обратный расчёт цены">
+      <h2>Обратный расчёт: какую цену поставить?</h2>
+      <div class="inline">
+        <select id="targetMode" aria-label="Что задать">
+          <option value="profit">Хочу прибыль с 1 шт, ₽</option>
+          <option value="margin">Хочу маржу, %</option>
+        </select>
+        <input id="target" type="number" inputmode="decimal" step="1" value="300" aria-label="Желаемое значение">
+      </div>
+      <div class="rev-out">
+        <div><span>Рекомендуемая цена</span><b id="rPrice">—</b></div>
+        <button type="button" id="applyPrice" class="primary small">Подставить цену</button>
+      </div>
+      <p class="note">Комиссия, реклама в % и налог считаются неизменными. У Ozon для товаров дешевле 300 ₽ комиссия ниже — проверьте отдельно.</p>
+    </section>
+  </aside>
 </main>
 
 <section class="wrap card" id="saved">
   <div class="saved-head">
     <h2>Мои товары</h2>
-    <div><button type="button" id="csv" class="ghost">Скачать CSV</button>
+    <div><button type="button" id="csv" class="ghost">Скачать CSV (Excel)</button>
     <button type="button" id="clear" class="ghost danger">Очистить</button></div>
   </div>
   <div class="table-wrap"><table id="cmp"></table></div>
   <p id="empty" class="muted">Пока пусто. Посчитайте товар и нажмите «Сохранить товар» — он появится здесь для сравнения. Данные хранятся только в вашем браузере.</p>
 </section>
 
+<section class="wrap card" id="how">
+  <h2>Как пользоваться калькулятором</h2>
+  <ol class="steps">
+    <li><b>Выберите площадку и категорию.</b> Wildberries или Ozon — комиссия по категории подставится автоматически (это ориентир, точную ставку проверьте в кабинете).</li>
+    <li><b>Введите цену и себестоимость.</b> Себестоимость — закупка плюс доставка до склада в расчёте на одну штуку.</li>
+    <li><b>Укажите логистику и процент выкупа.</b> Для WB можно ввести габариты упаковки — логистика посчитается сама. Нажмите «?» у любого поля, чтобы узнать, где взять цифру.</li>
+    <li><b>Смотрите результат и подбирайте цену.</b> Прибыль, маржа и ROI пересчитываются сразу. В «Обратном расчёте» задайте желаемую прибыль — калькулятор подскажет цену. Сохраняйте товары, сравнивайте и выгружайте в Excel, делитесь ссылкой на расчёт.</li>
+  </ol>
+</section>
+
+<section class="wrap card" id="faq">
+  <h2>Частые вопросы</h2>
+  <details class="qa"><summary>Как посчитать юнит-экономику на Wildberries?</summary><p>Юнит-экономика — это прибыль с одной проданной единицы. Возьмите цену продажи и вычтите себестоимость, комиссию WB по вашему предмету, логистику (с учётом невыкупов), хранение, приёмку, рекламу и налог. Калькулятор делает это автоматически: выберите Wildberries, категорию, укажите габариты для расчёта логистики — и сразу увидите прибыль, маржу и ROI.</p></details>
+  <details class="qa"><summary>Как рассчитать прибыль на Ozon?</summary><p>Переключитесь на Ozon, выберите категорию (подставится ориентировочная комиссия), введите логистику из личного кабинета, процент выкупа, рекламу и налог. Калькулятор покажет чистую прибыль на единицу и за месяц. С 2026 года логистика Ozon зависит от маршрута доставки, поэтому её лучше брать из отчёта о начислениях.</p></details>
+  <details class="qa"><summary>Что такое процент выкупа и почему он важен?</summary><p>Процент выкупа — доля заказов, которые покупатели забрали и оплатили. За невыкупленные заказы вы всё равно платите логистику до покупателя и обратно. Поэтому при выкупе 50% логистика на одну проданную вещь фактически вдвое дороже. Калькулятор учитывает это по формуле: (логистика + (1 − выкуп) × возврат) ÷ выкуп.</p></details>
+  <details class="qa"><summary>Что такое маржа, ROI и точка безубыточности?</summary><p>Маржа — доля чистой прибыли в цене продажи. ROI — прибыль относительно себестоимости, то есть сколько вы зарабатываете на каждый вложенный в товар рубль. Точка безубыточности — минимальная цена, при которой товар не приносит убытка.</p></details>
+  <details class="qa"><summary>Какую цену поставить, чтобы заработать нужную сумму?</summary><p>Воспользуйтесь блоком «Обратный расчёт»: укажите желаемую прибыль с одной штуки в рублях или желаемую маржу в процентах, и калькулятор подскажет минимальную цену продажи. Её можно сразу подставить в расчёт одной кнопкой.</p></details>
+  <details class="qa"><summary>Насколько точны комиссии и тарифы в калькуляторе?</summary><p>Ставки по категориям и тарифы логистики — ориентир по открытым данным на осень 2026 года. Маркетплейсы часто меняют тарифы, а точная комиссия зависит от конкретного предмета, поэтому сверяйте значения в личном кабинете продавца. Все поля можно редактировать вручную.</p></details>
+</section>
+
 <section class="wrap card pro" id="pro">
   <span class="badge">PRO · скоро</span>
   <h2>Расширенная версия</h2>
   <ul>
-    <li>Точные комиссии по категориям WB и Ozon с автообновлением</li>
-    <li>Расчёт логистики по объёму товара (литры) и складу</li>
+    <li>Точные комиссии по каждому предмету WB и Ozon с автообновлением</li>
+    <li>Логистика Ozon по маршрутам и складам</li>
     <li>Импорт отчёта о продажах и реальная прибыль по каждому товару</li>
     <li>Безлимитное хранение товаров в облаке и выгрузка в Excel</li>
   </ul>
@@ -119,7 +344,8 @@
 </section>
 
 <footer class="wrap foot">
-  <p><b>Важно:</b> расчёт приблизительный и носит справочный характер. Ставки комиссий, логистики и хранения на Wildberries и Ozon зависят от категории, объёма товара, склада и часто меняются — значения по умолчанию лишь ориентир. Точные тарифы смотрите в личном кабинете продавца. Налоги рассчитаны упрощённо, без учёта страховых взносов, НДС и вычетов.</p>
+  <p><b>Важно:</b> расчёт приблизительный и носит справочный характер. Ставки комиссий, логистики и хранения на Wildberries и Ozon зависят от категории, объёма товара, склада и часто меняются — значения по умолчанию и по категориям лишь ориентир (по открытым данным на октябрь 2026). Точные тарифы смотрите в личном кабинете продавца. Налоги рассчитаны упрощённо, без учёта страховых взносов, НДС и вычетов.</p>
+  <p>© 2026 Калькулятор селлера · Не является официальным сервисом Wildberries или Ozon</p>
 </footer>
 
 <script src="calc.js"></script>

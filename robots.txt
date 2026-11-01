@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://furfantom1331fur.github.io/seller-calc/sitemap.xml
