@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор прибыли для Wildberries и Ozon — юнит-экономика онлайн</title>
+<meta name="description" content="Бесплатный калькулятор юнит-экономики для селлеров Wildberries и Ozon: прибыль, маржа, ROI, точка безубыточности.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>Калькулятор прибыли <span>WB&nbsp;и&nbsp;Ozon</span></h1>
+    <p class="sub">Посчитайте чистую прибыль, маржу и точку безубыточности одного товара за минуту</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <section class="card" id="form">
+    <div class="mp-switch" role="tablist">
+      <button type="button" data-mp="wb" class="active">Wildberries</button>
+      <button type="button" data-mp="ozon">Ozon</button>
+    </div>
+
+    <label class="full">Название товара<input id="name" type="text" placeholder="Например, футболка оверсайз"></label>
+
+    <h3>Цена и закупка</h3>
+    <div class="row">
+      <label>Цена продажи, ₽<input id="price" type="number" min="0" step="1" value="1500"></label>
+      <label>Себестоимость (закупка + доставка до склада), ₽<input id="cost" type="number" min="0" value="450"></label>
+    </div>
+
+    <h3>Расходы маркетплейса</h3>
+    <div class="row">
+      <label>Комиссия, %<input id="commission" type="number" min="0" max="100" step="0.1" value="30">
+        <small id="commHint" class="hint"></small></label>
+      <label>Логистика до покупателя, ₽/шт<input id="logistics" type="number" min="0" value="80">
+        <small id="logHint" class="hint"></small></label>
+    </div>
+    <div class="row">
+      <label>Хранение, ₽/шт<input id="storage" type="number" min="0" value="10"></label>
+      <label>Приёмка / упаковка / маркировка, ₽/шт<input id="acceptance" type="number" min="0" value="20"></label>
+    </div>
+    <div class="row">
+      <label>Процент выкупа, %<input id="buyout" type="number" min="1" max="100" value="85"></label>
+      <label>Обратная логистика (возврат), ₽/шт<input id="returnLogistics" type="number" min="0" value="50"></label>
+    </div>
+
+    <h3>Реклама и налоги</h3>
+    <div class="row">
+      <label>Реклама
+        <div class="inline">
+          <input id="ads" type="number" min="0" step="0.1" value="10">
+          <select id="adsMode"><option value="pct">% от цены (ДРР)</option><option value="rub">₽ за шт</option></select>
+        </div></label>
+      <label>Налог
+        <div class="inline">
+          <select id="taxMode">
+            <option value="usn6">УСН 6% (доходы)</option>
+            <option value="usn15">УСН 15% (доходы − расходы)</option>
+            <option value="npd4">Самозанятый 4%</option>
+            <option value="npd6" selected>Самозанятый 6%</option>
+            <option value="custom">Свой %</option>
+          </select>
+          <input id="taxRate" type="number" min="0" max="100" step="0.1" value="6" title="Ставка, % от выручки">
+        </div></label>
+    </div>
+    <div class="row">
+      <label>Прочие расходы, ₽/шт<input id="other" type="number" min="0" value="0"></label>
+      <label>Продаж (выкупов) в месяц, шт<input id="units" type="number" min="0" value="100"></label>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="save" class="primary">Сохранить товар</button>
+      <button type="button" id="reset" class="ghost">Сбросить</button>
+    </div>
+  </section>
+
+  <section class="card results" id="results">
+    <h2>Результат на 1 проданную единицу</h2>
+    <div class="kpis">
+      <div class="kpi main"><span>Чистая прибыль</span><b id="rProfit">—</b></div>
+      <div class="kpi"><span>Маржа</span><b id="rMargin">—</b></div>
+      <div class="kpi"><span>ROI</span><b id="rRoi">—</b></div>
+      <div class="kpi"><span>Точка безубыточности</span><b id="rBreak">—</b></div>
+    </div>
+    <div class="bar" id="bar"></div>
+    <table class="breakdown" id="breakdown"></table>
+    <div class="month">
+      <div><span>Выручка за месяц</span><b id="mRevenue">—</b></div>
+      <div><span>Прибыль за месяц</span><b id="mProfit">—</b></div>
+    </div>
+    <p class="note">Логистика пересчитана с учётом выкупа: (логистика + (1 − выкуп) × возврат) ÷ выкуп. ROI — прибыль к себестоимости.</p>
+  </section>
+</main>
+
+<section class="wrap card" id="saved">
+  <div class="saved-head">
+    <h2>Мои товары</h2>
+    <div><button type="button" id="csv" class="ghost">Скачать CSV</button>
+    <button type="button" id="clear" class="ghost danger">Очистить</button></div>
+  </div>
+  <div class="table-wrap"><table id="cmp"></table></div>
+  <p id="empty" class="muted">Пока пусто. Посчитайте товар и нажмите «Сохранить товар» — он появится здесь для сравнения. Данные хранятся только в вашем браузере.</p>
+</section>
+
+<section class="wrap card pro" id="pro">
+  <span class="badge">PRO · скоро</span>
+  <h2>Расширенная версия</h2>
+  <ul>
+    <li>Точные комиссии по категориям WB и Ozon с автообновлением</li>
+    <li>Расчёт логистики по объёму товара (литры) и складу</li>
+    <li>Импорт отчёта о продажах и реальная прибыль по каждому товару</li>
+    <li>Безлимитное хранение товаров в облаке и выгрузка в Excel</li>
+  </ul>
+  <button type="button" class="primary" disabled>Оформить Pro — скоро</button>
+  <p class="muted">Это заглушка: платные функции пока в разработке, оплата не подключена.</p>
+</section>
+
+<footer class="wrap foot">
+  <p><b>Важно:</b> расчёт приблизительный и носит справочный характер. Ставки комиссий, логистики и хранения на Wildberries и Ozon зависят от категории, объёма товара, склада и часто меняются — значения по умолчанию лишь ориентир. Точные тарифы смотрите в личном кабинете продавца. Налоги рассчитаны упрощённо, без учёта страховых взносов, НДС и вычетов.</p>
+</footer>
+
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
