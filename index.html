@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="Калькулятор прибыли для Wildberries и Ozon">
 <meta name="twitter:description" content="Прибыль, маржа, ROI и точка безубыточности товара за минуту. Бесплатно и без регистрации.">
 <meta name="twitter:image" content="https://furfantom1331fur.github.io/seller-calc/og-image.png">
-<link rel="stylesheet" href="style.css?v=20261101b">
+<link rel="stylesheet" href="style.css?v=20261101c">
 <script>/* тема до отрисовки, чтобы не мигало */try{var t=localStorage.getItem('sellerCalc.theme');if(t||matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme=t||'dark'}catch(e){}</script>
 <script type="application/ld+json">
 {
@@ -328,16 +328,34 @@
 </section>
 
 <section class="wrap card pro" id="pro">
-  <span class="badge">PRO · скоро</span>
-  <h2>Расширенная версия</h2>
-  <ul>
-    <li>Точные комиссии по каждому предмету WB и Ozon с автообновлением</li>
-    <li>Логистика Ozon по маршрутам и складам</li>
-    <li>Импорт отчёта о продажах и реальная прибыль по каждому товару</li>
-    <li>Безлимитное хранение товаров в облаке и выгрузка в Excel</li>
-  </ul>
-  <button type="button" class="primary" disabled>Оформить Pro — скоро</button>
-  <p class="muted">Это заглушка: платные функции пока в разработке, оплата не подключена.</p>
+  <div id="proLocked">
+    <span class="badge">PRO · 299 ₽/мес</span>
+    <h2>Pro: весь ассортимент сразу</h2>
+    <p class="muted">Бесплатный калькулятор остаётся бесплатным. Pro — для тех, у кого десятки товаров. Без регистрации и без ключа от кабинета: файлы считаются прямо в браузере и никуда не отправляются.</p>
+    <ul>
+      <li><b>Расчёт всего ассортимента</b> из Excel или CSV: прибыль, маржа и ROI по каждому товару, убыточные подсвечены</li>
+      <li><b>Реальная прибыль из отчёта о реализации</b> WB и Ozon: со штрафами, возвратами, хранением и логистикой</li>
+      <li><b>ABC-анализ</b> с подсказками: где поднять цену, где снять рекламу, что вывести</li>
+      <li><b>Сценарии</b> для всех товаров: акция со скидкой, рост комиссии, ДРР, логистики</li>
+      <li><b>План закупки</b>: на сколько дней хватит остатков, сколько денег в товаре, кассовый разрыв</li>
+      <li><b>Налоги подробно</b>: УСН 6% и 15%, самозанятый, НДС 5% и 7%, взносы ИП</li>
+      <li><b>Отчёт в PDF и Excel</b> одной кнопкой</li>
+    </ul>
+    <div class="actions">
+      <!-- TODO: заменить ссылку на страницу Boosty, когда она появится (сейчас заглушка BOOSTY_PAGE_PLACEHOLDER) -->
+      <a class="primary btn-link" id="boostyLink" href="https://boosty.to/BOOSTY_PAGE_PLACEHOLDER" target="_blank" rel="noopener">Оформить Pro на Boosty</a>
+    </div>
+    <form id="proForm" class="pro-unlock" autocomplete="off">
+      <label for="proCode">Уже подписаны? Введите код из закрытого поста на Boosty</label>
+      <div class="inline">
+        <input id="proCode" type="text" placeholder="Например, НОЯ-XXXX-XXXX" autocapitalize="characters" spellcheck="false" maxlength="40">
+        <button type="submit" class="primary">Открыть Pro</button>
+      </div>
+      <p class="pro-err" id="proErr" role="alert"></p>
+    </form>
+    <p class="muted">Код меняется 1-го числа каждого месяца, новый появляется в том же закрытом посте. Браузер запоминает код, вводить его каждый раз не нужно.</p>
+  </div>
+  <div id="proMount"></div>
 </section>
 
 <footer class="wrap foot">
@@ -345,7 +363,8 @@
   <p>© 2026 Калькулятор селлера · Не является официальным сервисом Wildberries или Ozon</p>
 </footer>
 
-<script src="calc.js?v=20261101b"></script>
-<script src="app.js?v=20261101b"></script>
+<script src="calc.js?v=20261101c"></script>
+<script src="app.js?v=20261101c"></script>
+<script src="pro-loader.js?v=20261101c"></script>
 </body>
 </html>

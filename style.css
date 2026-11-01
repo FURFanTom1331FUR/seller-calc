@@ -123,3 +123,12 @@ button.danger{color:var(--bad)}
   .hero h1{font-size:25px}.sub{font-size:15px}.nav-links a{display:none}.card{padding:16px;border-radius:14px}
   .actions button{flex:1 1 100%}
 }
+
+/* Pro: форма доступа */
+a.btn-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;background:var(--accent);color:#fff;border-radius:10px;padding:11px 18px;font-weight:600;min-height:44px}
+.pro-unlock{margin:16px 0 6px;max-width:560px}
+.pro-unlock label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.pro-unlock input{text-transform:uppercase;letter-spacing:.06em}
+.pro-unlock input::placeholder{text-transform:none;letter-spacing:0}
+.pro-err{min-height:1.2em;margin:6px 0 0;font-size:13px;color:var(--bad)}
+@media (max-width:520px){.pro-unlock .inline{flex-direction:column}.pro-unlock button{width:100%}}
